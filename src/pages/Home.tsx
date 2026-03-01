@@ -6,6 +6,8 @@ import heroimg from '../assets/Desktop - 6.png';
 import p1 from '../assets/p1.jpg';
 import p2 from '../assets/p2.jpg';
 import p3 from '../assets/p3.jpg';
+import { useState, useEffect } from 'react';
+import logo from "../assets/logo.png";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -13,6 +15,17 @@ export default function Home() {
     target: containerRef,
     offset: ['start start', 'end end'],
   });
+
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
@@ -41,8 +54,17 @@ export default function Home() {
   return (
     <div ref={containerRef} className="relative bg-black min-h-screen">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 w-full p-8 flex justify-between items-center z-40 mix-blend-difference">
-        <div className="text-xl font-serif font-bold tracking-widest text-white">SHARATH.</div>
+      <nav
+        className={`fixed top-0 left-0 w-full p-8 flex justify-between items-center z-40 transition-all duration-500 
+        ${scrolled ? "backdrop-blur-lg bg-black/40  border-white/10" : "bg-transparent mix-blend-difference"}`}
+      >
+        <a href="#hero">
+        <img 
+          src={logo} 
+          alt="Logo"
+          className="h-12 w-auto object-contain"
+        />
+        </a>
         <div className="flex gap-8 text-sm tracking-widest text-white/80">
           <a href="#projects" className="hover:text-gold transition-colors hover-target">PROJECTS</a>
           <a href="https://drive.google.com/file/d/1_WDfuUd2HhlhT5v9IP0f90TQ8kBzaJUR/view?usp=sharing" target="_blank" rel="noreferrer" className="hover:text-gold transition-colors hover-target">RESUME</a>
@@ -52,7 +74,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section id='hero' className="relative h-screen flex items-center justify-center overflow-hidden">
         <motion.div style={{ y, opacity }} className="absolute inset-0 z-0">
 
           <img 
