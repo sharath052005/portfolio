@@ -17,26 +17,26 @@ export default function TextReveal({ text, className = '', delay = 0 }: TextReve
     }),
   };
 
-  const child = {
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: 'spring',
-        damping: 12,
-        stiffness: 100,
-      },
+  const child: Variants = {
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      damping: 12,
+      stiffness: 100,
+      type: "spring" as const, // <-- 🔥 FIX
     },
-    hidden: {
-      opacity: 0,
-      y: 20,
-      transition: {
-        type: 'spring',
-        damping: 12,
-        stiffness: 100,
-      },
+  },
+  hidden: {
+    opacity: 0,
+    y: 20,
+    transition: {
+      damping: 12,
+      stiffness: 100,
+      type: "spring" as const, // <-- 🔥 FIX
     },
-  };
+  },
+};
 
   return (
     <motion.div
