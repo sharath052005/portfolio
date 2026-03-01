@@ -24,7 +24,7 @@ export default function TextReveal({ text, className = '', delay = 0 }: TextReve
     transition: {
       damping: 12,
       stiffness: 100,
-      type: "spring" as const, // <-- 🔥 FIX
+      type: "spring" as const, 
     },
   },
   hidden: {
@@ -33,7 +33,7 @@ export default function TextReveal({ text, className = '', delay = 0 }: TextReve
     transition: {
       damping: 12,
       stiffness: 100,
-      type: "spring" as const, // <-- 🔥 FIX
+      type: "spring" as const, 
     },
   },
 };
