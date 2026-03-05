@@ -72,7 +72,7 @@ export default function Home() {
           {/* Desktop links */}
           <div className="hidden md:flex gap-8 text-sm tracking-widest text-white/80">
             <a href="#projects" className="hover:text-gold transition-colors hover-target">PROJECTS</a>
-            <a href="https://drive.google.com/file/d/1_WDfuUd2HhlhT5v9IP0f90TQ8kBzaJUR/view?usp=sharing" target="_blank" rel="noreferrer" className="hover:text-gold transition-colors hover-target">RESUME</a>
+            <a href="https://drive.google.com/file/d/17UPEvOZZmcOaiyw5VlubvNslgK_mjpjG/view?usp=sharing" target="_blank" rel="noreferrer" className="hover:text-gold transition-colors hover-target">RESUME</a>
             <a href="#about" className="hover:text-gold transition-colors hover-target">ABOUT</a>
             <a href="#contact" className="hover:text-gold transition-colors hover-target">CONTACT</a>
           </div>
@@ -208,7 +208,7 @@ export default function Home() {
               <img
                 src={sharath}
                 alt="Sharath"
-                className="w-full aspect-[3/4] object-cover rounded-sm relative z-10 filter grayscale hover:grayscale-0 transition-all duration-500"
+                className="w-full aspect-[3/4] object-cover rounded-sm relative z-10 filter"
               />
             </motion.div>
           </div>
