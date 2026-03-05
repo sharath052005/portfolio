@@ -8,6 +8,7 @@ import p2 from '../assets/p2.jpg';
 import p3 from '../assets/p3.jpg';
 import { useState, useEffect } from 'react';
 import logo from "../assets/logo.png";
+import sharath from "../assets/sharath.jpeg";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -205,7 +206,7 @@ export default function Home() {
             >
               <div className="absolute -inset-3 md:-inset-4 border border-gold/30 rounded-sm translate-x-3 translate-y-3 md:translate-x-4 md:translate-y-4" />
               <img
-                src="https://sharathdesignz.netlify.app/sharath.jpeg"
+                src={sharath}
                 alt="Sharath"
                 className="w-full aspect-[3/4] object-cover rounded-sm relative z-10 filter grayscale hover:grayscale-0 transition-all duration-500"
               />
